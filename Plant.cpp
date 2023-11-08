@@ -27,9 +27,9 @@ int Plant::GetPlantCost() const {
     return plantCost;
 }
 
-void Plant::PrintInfo() const {
-    cout << "   Plant name: " << plantName << endl;
-    cout << "   Cost: " << plantCost << endl;
+void Plant::PrintInfo(ostream& out) const {
+    out << "   Plant name: " << plantName << endl;
+    out << "   Cost: " << plantCost << endl;
 }
 
 Plant::Plant(string name, int cost) {
@@ -41,9 +41,7 @@ bool Plant::operator==(Plant &other) {
     return this->plantName == other.plantName;
 }
 
-ostream &operator<<(ostream &out, Plant* plant) {
-    out << "   Plant name: " << plant->plantName << endl;
-    out << "   Cost: " << plant->plantCost << endl;
-
+ostream &operator<<(ostream &out, Plant& plant) {
+    plant.PrintInfo(out);
     return out;
 }

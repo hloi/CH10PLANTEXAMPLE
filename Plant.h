@@ -29,11 +29,11 @@ public:
 
     int GetPlantCost() const;
 
-    virtual void PrintInfo() const;
+    virtual void PrintInfo(ostream& out) const;
 
     virtual bool operator==(Plant& other);
 
-    friend ostream& operator<<(ostream& out, Plant* plant);
+    friend ostream& operator<<(ostream& out, Plant& plant);
 
 
 protected:

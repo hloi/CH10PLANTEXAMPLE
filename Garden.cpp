@@ -4,8 +4,10 @@
 
 #include "Garden.h"
 #include <stdexcept>
+#include <iostream>
 
 using std::runtime_error;
+using std::cout;
 
 void Garden::Add(Plant *aPlant) {
     myGarden.push_back(aPlant);
@@ -13,7 +15,7 @@ void Garden::Add(Plant *aPlant) {
 
 void Garden::PrintInfo() {
     for (size_t i=0; i<myGarden.size(); i++) {
-        myGarden.at(i)->PrintInfo();
+        cout << *myGarden.at(i);
     }
 }
 
@@ -45,7 +47,7 @@ Garden::~Garden() {
 ostream &operator<<(ostream &out, Garden &garden) {
     for (size_t i=0; i<garden.myGarden.size(); i++)
     {
-        out << garden.myGarden.at(i);
+        out << *garden.myGarden.at(i);
     }
     return out;
 }

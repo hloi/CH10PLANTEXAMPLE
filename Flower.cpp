@@ -23,11 +23,11 @@ string Flower::GetColorOfFlowers() const {
     return colorOfFlowers;
 }
 
-void Flower::PrintInfo() const {
-    cout << "   Plant name: " << plantName << endl;
-    cout << "   Cost: " << plantCost << endl;
-    cout << "   Annual: " << boolalpha << isAnnual << endl;
-    cout << "   Color of flowers: " << colorOfFlowers << endl;
+void Flower::PrintInfo(ostream& out) const {
+    out << "   Plant name: " << plantName << endl;
+    out << "   Cost: " << plantCost << endl;
+    out << "   Annual: " << boolalpha << isAnnual << endl;
+    out << "   Color of flowers: " << colorOfFlowers << endl;
 }
 
 Flower::Flower(string name, int cost, string color, bool isAnnual) {
@@ -37,11 +37,7 @@ Flower::Flower(string name, int cost, string color, bool isAnnual) {
     this->isAnnual = isAnnual;
 }
 
-ostream &operator<<(ostream &out, Flower* flower) {
-    out << "   Plant name: " << flower->plantName << endl;
-    out << "   Cost: " << flower->plantCost << endl;
-    // out << flower;
-    out << "   Annual: " << boolalpha << flower->isAnnual << endl;
-    out << "   Color of flowers: " << flower->colorOfFlowers << endl;
+ostream &operator<<(ostream &out, Flower& flower) {
+    flower.PrintInfo(out);
     return out;
 }

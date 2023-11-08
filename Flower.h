@@ -26,9 +26,9 @@ public:
 
     string GetColorOfFlowers() const;
 
-    void PrintInfo() const;
+    void PrintInfo(ostream& out) const;
 
-    friend ostream& operator<<(ostream& out, Flower* flower);
+    friend ostream& operator<<(ostream& out, Flower& flower);
 
 private:
     bool isAnnual;
